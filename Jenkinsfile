@@ -4,7 +4,7 @@ pipeline{
         stage("Build Image"){
             steps{
                 script{
-                    dockerapp = docker.build("danilompr/apiproductK8S:${env.BUILD_ID}","-f ./ProductAPI/Dockerfile .")
+                    dockerapp = docker.build("danilompr/apiproductk8s:${env.BUILD_ID}","-f ./ProductAPI/Dockerfile .")
                 }
                
             }
