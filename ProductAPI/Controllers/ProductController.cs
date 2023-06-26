@@ -24,10 +24,14 @@ namespace GeekShopping.ProductAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductVO>>> FindAll()
         {
-            var products = await _repository.FindAll();
-            return Ok(products);
+           //var products = await _repository.FindAll();
+           var products = new List<ProductVO>();
+            products.Add(new ProductVO { Name="teste",Description="descrição teste"});
+           return Ok(products);
         }
 
+
+    
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductVO>> FindById(long id)
         {

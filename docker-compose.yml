@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  productapi:
+    image: ${DOCKER_REGISTRY-}productapi
+    build:
+      context: .
+      dockerfile: ProductAPI/Dockerfile
+    depends_on:
+      -  sqlserver
+  sqlserver:
+    image:  mcr.microsoft.com/mssql/server:2019-latest
+    hostname: 'sqlserver'
+    environment:
+       ACCEPT_EULA: 'Y'
+       SA_PASSWORD: "Numsey#2023"
+    volumes :
+     - c:\dados\volumes\mssql:/var/opt/mssql3
+    ports:
+       - '11433:1433'
+    expose:
+      - 1433
+
+        
+
+
+

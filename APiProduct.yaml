@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-product
+  template:
+    metadata:
+      labels:
+        app: api-product
+    spec:
+      containers:
+        - name: api-container-product
+          image: danilompr/productapi:9.3
+          ports:
+            - containerPort: 80
