@@ -1,9 +1,12 @@
 pipeline{
     agent any
     stages{
-        stage("Inicial"){
+        stage("Build Image"){
             steps{
-                echo "Inicio "
+                script{
+                    dockerapp = docker.build("danilompr/apiproductK8S:${env.BUILD_ID}","-f ./ProductAPI/Dockerfile .")
+                }
+               
             }
         }
     }
