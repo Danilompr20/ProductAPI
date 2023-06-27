@@ -27,7 +27,7 @@ pipeline{
                 }
                 steps{
                     withKubeConfig([credentialsId:"kubeconfig"]){
-                      
+                        bat "sed -i 's/{{tag}}/tag-version/g' /apiproduct.yaml"
                         bat "kubectl apply -f apiproduct.yaml"
                     }
                 }
