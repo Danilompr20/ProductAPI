@@ -28,7 +28,7 @@ pipeline{
                 steps{
                     withKubeConfig([credentialsId:"kubeconfig"]){
                       
-                        sh "kubectl apply -f ./ProductAPI/apiproduct.yaml"
+                        sh "kubectl apply -f apiproduct.yaml"
                     }
                 }
 
