@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sql-server
+  name: sql-server-service
 spec:
   selector:
     app: sql-server
   ports:
     - protocol: TCP
-      port: 1433
+      port: 11433
       targetPort: 1433
-  type: ClusterIP
+  type: NodePort
